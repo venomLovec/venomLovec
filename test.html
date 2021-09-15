@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+    <header>
+     <nav>
+       <ul class="menu">
+         <li class="menu-item">Первый пункт</li>
+         <li class="menu-item">Третий пункт</li>
+         <li class="menu-item">Второй пункт</li>
+         <li class="menu-item">Четвертый пункт</li>
+       </ul>
+     </nav>
+    </header>
+    <div class="column">1-st column</div>
+    <div class="column">
+      <div class="title" id="title"> 
+        Мы продаем только технику Apple
+      </div>
+      <div class="adv">
+        Это назойливая реклама, которую нужно удалить
+      </div>
+      <div class="prompt" id="prompt">
+      </div>
+    </div>
+    
+    <script>
+        let a = document.getElementsByClassName('adv')
+        let b = document.getElementsByClassName('column')
+        console.log(a)
+        console.log(b)
+        b[1].removeChild(a[0])
+    </script>
+    
+	<script src="js/script.js"></script>
+
+  </body>
+</html>
