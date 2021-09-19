@@ -34,6 +34,17 @@
         console.log(a)
         console.log(b)
         b[1].removeChild(a[0])
+        
+        let c = document.getElementsByClassName('menu')
+        let d = document.getElementsByClassName('menu-item')
+        c[0].insertBefore(d[2], d[1])
+        let e = document.createElement('li')
+        e.innerHTML = '5-пункт'
+        c[0].appendChild(e)
+        
+        let f = document.querySelector('.title')
+        console.log(f)
+        f.innerHTML = 'Мы продаем только official технику Apple'
     </script>
     
 	<script src="js/script.js"></script>
