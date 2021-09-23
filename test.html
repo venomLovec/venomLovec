@@ -6,48 +6,13 @@
 	<title>Document</title>
 </head>
 <body>
-    <header>
-     <nav>
-       <ul class="menu">
-         <li class="menu-item">Первый пункт</li>
-         <li class="menu-item">Третий пункт</li>
-         <li class="menu-item">Второй пункт</li>
-         <li class="menu-item">Четвертый пункт</li>
-       </ul>
-     </nav>
-    </header>
-    <div class="column">1-st column</div>
-    <div class="column">
-      <div class="title" id="title"> 
-        Мы продаем только технику Apple
-      </div>
-      <div class="adv">
-        Это назойливая реклама, которую нужно удалить
-      </div>
-      <div class="prompt" id="prompt">
-      </div>
-    </div>
-    
-    <script>
-        let a = document.getElementsByClassName('adv')
-        let b = document.getElementsByClassName('column')
-        console.log(a)
-        console.log(b)
-        b[1].removeChild(a[0])
         
-        let c = document.getElementsByClassName('menu')
-        let d = document.getElementsByClassName('menu-item')
-        c[0].insertBefore(d[2], d[1])
-        let e = document.createElement('li')
-        e.innerHTML = '5-пункт'
-        c[0].appendChild(e)
-        
-        let f = document.querySelector('.title')
-        console.log(f)
-        f.innerHTML = 'Мы продаем только official технику Apple'
-    </script>
+    <button class="btn1">1-st button</button>
+    <button class="btn1">2-st button</button>
+    <button class="circle">3-st button</button>
+    <button id='circle'>4-st button</button>
     
-	<script src="js/script.js"></script>
+    <script src="test_script.js"></script>
 
   </body>
 </html>

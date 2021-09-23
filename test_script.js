@@ -1,51 +1,36 @@
-//let a = parseInt(prompt("Ваш бюджет на месяц?", ""));
-//console.log(a); console.log(typeof(a))
-//
-//function start () {
-//    while (isNaN(a) || a == '' || a == null)
-//     {
-//        console.log('ERROR');
-//        a = parseInt(prompt ("Ваш бюджет на месяц?", ""));
-//    }
-//}
-//start();
+let btn1 = document.getElementsByClassName('btn1');
+console.log(btn1);
 
-//let circle = document.getElementsByTagName('button');
-//console.log(circle);
-//
-//circle[0].style.backgroundColor = 'red';
-//circle[2].style.opacity = '50%';
-//circle[0].style.width = '100px';
-//circle[0].style.borderRadius = '20px';
-//
-//let div = document.createElement('div');
-//div.style.width = '100px';
-//let text = document.createTextNode('privet');
-//console.log(div, text);
-//
-//document.body.appendChild(div);
-//console.log(div);
-
-let circle = document.getElementsByTagName('button') ;
+let circle = document.getElementsByClassName('circle');
 console.log(circle);
-circle[0].style.backgroundColor = 'red';
-circle[1].style.borderRadius = '50%';
-circle[2].style.height = '50px';
-circle[2].style.width = '200px';
 
-let div = document.createElement('div');
-div.style.marginTop = '20px';
-div.style.height = '50px';
-div.style.backgroundColor = '#fdf';
-//div.textContent = 'Hell, world'';
-div.innerHTML = '<h1> Hi, Den </h1>';
+let heart = document.getElementById('circle');
+console.log(heart);
 
-circle[2].onclick = ()=>alert('third button!')
+heart.addEventListener('click', ()=>{alert('1-st click')})
+heart.addEventListener('click', ()=>{alert('2-nd click')})
 
-circle.addEventListener('click', )
+circle[0].addEventListener('mouseover', ()=>{alert('hi')})
+circle[0].style.borderRadius = '20px'
 
-document.body.appendChild(div);
+btn1[1].addEventListener('mouseout', (event)=>{
+    console.log('Произошло событие: '+ event.type + ' на элементе: '+ event.target)
+})
+btn1[0].addEventListener('click', (event)=>{
+    let hide = event.target
+    hide.style.display = 'none'
+})
 
 
 
-console.log(div);
+let div = document.createElement('div')
+div.innerHTML = '<h1>text</h1>'
+div.style.marginLeft = '450px'
+document.body.appendChild(div)
+
+let input1 = document.createElement('input')
+document.body.appendChild(input1)
+
+input1.addEventListener('input', ()=>{
+    div.innerHTML = input1.value    
+})
