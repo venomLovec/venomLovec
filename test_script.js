@@ -10,10 +10,14 @@ console.log(heart);
 heart.addEventListener('click', ()=>{alert('1-st click')})
 heart.addEventListener('click', ()=>{alert('2-nd click')})
 
-circle[0].addEventListener('mouseover', ()=>{alert('hi')})
+circle[0].addEventListener('click', ()=>{
+    heart.setAttribute('hidden', true)
+    btn1[0].setAttribute('hidden', true)
+    btn1[1].setAttribute('hidden', true)
+})
 circle[0].style.borderRadius = '20px'
 
-btn1[1].addEventListener('mouseout', (event)=>{
+btn1[1].addEventListener('click', (event)=>{
     console.log('Произошло событие: '+ event.type + ' на элементе: '+ event.target)
 })
 btn1[0].addEventListener('click', (event)=>{
@@ -34,3 +38,13 @@ document.body.appendChild(input1)
 input1.addEventListener('input', ()=>{
     div.innerHTML = input1.value    
 })
+let a = document.getElementsByTagName('input')[0]
+
+
+a.addEventListener('input', ()=>{
+    let b = document.querySelectorAll('.div')[0]
+    b.textContent = a.value
+    console.log(b)
+
+})
+
