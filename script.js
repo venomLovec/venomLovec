@@ -1,4 +1,4 @@
-let starnBtn = document.getElementById('start') //Начать расчет
+let startBtn = document.getElementById('start') //Начать расчет
 let budgetValue = document.getElementsByClassName("budget-value")[0] 
 budgetValue.innerHTML = '0'
 let dayBudgetValue = document.getElementsByClassName("daybudget-value")[0]
@@ -47,7 +47,7 @@ calculate.style.background = '#c8c6c4'
 
 checkSavings.setAttribute('disabled', true)
 
-starnBtn.addEventListener('click', ()=>{
+startBtn.addEventListener('click', ()=>{
     done1.removeAttribute('disabled')
     done1.style.background = '#ff964b'
     
@@ -60,7 +60,7 @@ starnBtn.addEventListener('click', ()=>{
     checkSavings.removeAttribute('disabled')
 })
 
-starnBtn.addEventListener('click', ()=>{
+startBtn.addEventListener('click', ()=>{
     
     time = prompt("Введите дату в формате YYYY-MM-DD", "");
     money = parseInt(prompt("Ваш бюджет на месяц?", ""));
