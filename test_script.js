@@ -156,6 +156,9 @@ btnBlock.addEventListener('click', (event)=>{
     } else if(this) {console.log(2)}
 })
 
+<button>Hello World</button>
+var b = document.querySelector("button");
+b.setAttribute("disabled", "disabled");
 
 
 

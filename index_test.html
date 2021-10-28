@@ -5,13 +5,13 @@
     <title>Document</title>
 </head>
 <body>
-        <div class="timer" id="timer">
-            <span class="days"> 00 days</span>
-            <input class="hours" value="00" type="text">
-            <input class="min" value="00" type="text">
-            <input class="sec" value="00" type="text">
-        </div>
-
+    <div class="timer" id="timer">
+        <span class="days"> 00 days</span>
+        <input class="hours" value="00" type="text">
+        <input class="min" value="00" type="text">
+        <input class="sec" value="00" type="text">
+    </div>
+    <button style="cursor: pointer">Hello World</button>
     <style>
         body{
         background-color: mediumslateblue;
@@ -36,41 +36,41 @@
     </style>
     
     <script>
-        let deadLine = '2021-10-17T00:00:00'
-        function getTime(endtime){
-            let t = Date.parse(deadLine) - Date.parse(new Date())
-            let sec = Math.floor((t/1000)%60)
-            let min = Math.floor((t/1000/60)%60)
-            let hours = Math.floor((t/1000/60/60)%24)
-            let days = Math.floor(t/1000/60/60/24)
-            return {
-                'total': t,
-                'days': days,
-                'hours': hours,
-                'min': min,
-                'sec': sec,
-            }
-           
-        }
-        
-        function setClock(id, endtime){
-            let timer = document.getElementById(id)
-            let days = document.querySelector('.days')
-            let hours = timer.querySelector('.hours')
-            let min = timer.querySelector('.min')
-            let sec = timer.querySelector('.sec')
-            console.log(timer, days, hours, min, sec)
-            let update = setInterval(updateClock, 1000)
-            
-            function updateClock(){
-                let t = getTime(endtime)
-                days.textContent = t.days + ' days'
-                hours.value = t.hours + ' h'
-                min.value = t.min + ' min'
-                sec.value = t.sec + ' sec'
-                if(t.total<=0){
-                    clearInterval(update)
-                }
+//        let deadLine = '2021-10-17T00:00:00'
+//        function getTime(endtime){
+//            let t = Date.parse(deadLine) - Date.parse(new Date())
+//            let sec = Math.floor((t/1000)%60)
+//            let min = Math.floor((t/1000/60)%60)
+//            let hours = Math.floor((t/1000/60/60)%24)
+//            let days = Math.floor(t/1000/60/60/24)
+//            return {
+//                'total': t,
+//                'days': days,
+//                'hours': hours,
+//                'min': min,
+//                'sec': sec,
+//            }
+//           
+//        }
+//        
+//        function setClock(id, endtime){
+//            let timer = document.getElementById(id)
+//            let days = document.querySelector('.days')
+//            let hours = timer.querySelector('.hours')
+//            let min = timer.querySelector('.min')
+//            let sec = timer.querySelector('.sec')
+//            console.log(timer, days, hours, min, sec)
+//            let update = setInterval(updateClock, 1000)
+//            
+//            function updateClock(){
+//                let t = getTime(endtime)
+//                days.textContent = t.days + ' days'
+//                hours.value = t.hours + ' h'
+//                min.value = t.min + ' min'
+//                sec.value = t.sec + ' sec'
+//                if(t.total<=0){
+//                    clearInterval(update)
+//                }
 //                if(t.days<10){
 //                    days.innerHTML = '0'+t.days+ ' days'
 //                }
@@ -83,26 +83,73 @@
 //                if(t.sec<10){
 //                    sec.value = '0'+t.sec+' sec'
 //                }
-                let num = 50
-                switch(true){
-                    case num<10:
-                        console.log(1);
-                        break;
-                    case num>49:
-                        console.log(2)
-                        break;
-                    default:
-                        console.log('errror!!!')
-                        break;
-                }
-            }
+//            }
+//        
+//        setClock('timer', deadLine)
+        
+//        class User{
+//            constructor(name, age, nickname){
+//                this.name = name;
+//                this.age = age;
+//                this.nickname = nickname;
+//            }
+//            hello(){console.log(`hello ${this.name}, you ${this.age}`)}
+//            exit(){console.log(`Пользователь ${this.nickname} покинул чат`)}
+//        }
+//        
+//        let alex= new User('Alex', 32, 'venom_lovec')
+//        
+//        console.log(alex.hello())
+//        let user = {name: 'John'}
+//        let arr = ['ad', 23, 'we']
+//        console.log(arr[1])
+//        
+//        function showName(surname){
+//            console.log(this);
+//            console.log(this.name + surname);
+//        }
+//        console.log(showName.apply(user, [' Smith', 'Ivanov', 'Petrov', 'Sidorov']))
+//        console.log(showName.call(user, ' Bur'))
+        let arr = {name: 'John'}
+        
+        function start(number){
+            console.log(this)
+            console.log(this.name)
+            console.log(number)
         }
+        console.log(start.call(arr, '23'))
+        console.log(start.apply(arr, ['32']))
         
-        setClock('timer', deadLine)
-
-
+        let btn3 = document.querySelector('button')
+        btn3.addEventListener('click', ()=>{
+        btn3.setAttribute('disabled', true)})
         
+        'use strict'
+        function hello() { console.log(this) } hello() 
     </script>
-    
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

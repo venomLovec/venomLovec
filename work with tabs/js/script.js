@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', ()=>{
-    'use strict'
+//    'use strict'
 //Вариант 1 без циклов
 //    let tabs = document.querySelectorAll('.info-header-tab')
 //    console.log(tabs)
@@ -116,11 +116,27 @@ window.addEventListener('DOMContentLoaded', ()=>{
         if(event.target == header[i]){hideTabContent(0); showTabContent(i)}
            }
     })
-    
-    
-    
-    
+
+    let knowMore = document.querySelector('.more')
+    console.log(knowMore)
+    knowMore.addEventListener('click', ()=>{
+        let overLay = document.querySelector('.overlay')
+        overLay.style.display = 'block'
+        document.body.style.overflow = 'hidden'
+        let popUpClose = document.querySelector('.popup-close')
+        popUpClose.addEventListener('click',()=>{
+            overLay.style.display = 'none'
+            document.body.style.overflow = ''
+        })
+//        knowMore.style.display = 'none'
+//        knowMore.setAttribute('disableb', true)
+//        knowMore.style.visibility = 'hidden'
     })
+    function showModal (){
+        
+    } 
+      
+})
     
     
     
