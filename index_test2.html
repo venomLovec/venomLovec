@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+</head>
+<body>
+<div class="options">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ab nemo, commodi tenetur iure provident deserunt in aliquid iusto fugiat veniam, facere velit omnis a doloremque qui, voluptate error repellendus similique. Perferendis, explicabo mollitia. Possimus, repellat, veritatis. Ad non voluptas aut, voluptatum provident vitae minima sed mollitia ducimus incidunt dolorum in nam assumenda omnis ipsam.</div>
+<input id="age" value="30">
+<style>
+    .options {
+        height: 200px;
+        width: 1000px;
+        background: red;
+        text-align: center;
+        font-size: 12px;
+    }
+</style>
+<script>
+    class Options{
+        constructor(height, width, bg, fontSize, textAlign){
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
+            this.textAlign = textAlign;
+            this.newDiv = function(){
+                let a = document.createElement('div')
+                
+                document.body.appendChild(a)
+                
+                a.innerHTML = `it's new div` 
+
+                a.style.marginBottom  = '20px';
+                a.style.marginTop  = '5px';
+                a.style.display = 'inline-block';
+                
+                a.style.height  = height;
+                a.style.width  = width;
+                a.style.fontSize = fontSize;
+                a.style.background = bg;
+                a.style.textAlign = textAlign;
+            }
+            
+        }
+        
+        close(){
+            alert(23)
+        }
+        reload(){
+            alert(32)
+        }
+    }
+    
+    let neva = new Options('50px', '400px', 'green', '20px', 'center')
+    let neva2 = new Options('50px', '400px', 'green', '20px', 'left')
+    let neva3 = new Options('50px', '400px', 'green', '20px', 'right')
+    
+    console.log(neva.newDiv)
+    
+    
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
