@@ -2,88 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test2</title>
+    <title>Document</title>
 </head>
-<body>
-<div class="options">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ab nemo, commodi tenetur iure provident deserunt in aliquid iusto fugiat veniam, facere velit omnis a doloremque qui, voluptate error repellendus similique. Perferendis, explicabo mollitia. Possimus, repellat, veritatis. Ad non voluptas aut, voluptatum provident vitae minima sed mollitia ducimus incidunt dolorum in nam assumenda omnis ipsam.</div>
-<input id="age" value="30">
-<style>
-    .options {
-        height: 200px;
-        width: 1000px;
-        background: red;
-        text-align: center;
-        font-size: 12px;
-    }
-</style>
-<script>
-    class Options{
-        constructor(height, width, bg, fontSize, textAlign){
-            this.height = height;
-            this.width = width;
-            this.bg = bg;
-            this.fontSize = fontSize;
-            this.textAlign = textAlign;
-            this.newDiv = function(){
-                let a = document.createElement('div')
-                
-                document.body.appendChild(a)
-                
-                a.innerHTML = `it's new div` 
-
-                a.style.marginBottom  = '20px';
-                a.style.marginTop  = '5px';
-                a.style.display = 'inline-block';
-                
-                a.style.height  = height;
-                a.style.width  = width;
-                a.style.fontSize = fontSize;
-                a.style.background = bg;
-                a.style.textAlign = textAlign;
-            }
-            
-        }
+<body style="background-color: palegreen">
+    <br>
+    <div class="vrapper" style="border: 2px solid black; padding: 20px">    
+        <div style=" background-color: cornflowerblue; text-align: center">CURRENCY CONVERTER</div>
+        <br>
+        <div class="wrapperTwo" style="display: flex; justify-content: center">
+            <div style="display: inline-block">BYN</div>
+            <input class="byn">
+            <div style="display: inline-block">USD</div>
+            <input class="usd">
+            <div style="display: inline-block">RUB</div>
+            <input class="rub">
+        </div>
+        <br><br>
+    </div>
+    <script>
+        let byn = document.querySelector('.byn')
+        let usd = document.querySelector('.usd')
+        let rub = document.querySelector('.rub')
         
-        close(){
-            alert(23)
-        }
-        reload(){
-            alert(32)
-        }
-    }
-    
-    let neva = new Options('50px', '400px', 'green', '20px', 'center')
-    let neva2 = new Options('50px', '400px', 'green', '20px', 'left')
-    let neva3 = new Options('50px', '400px', 'green', '20px', 'right')
-    
-    console.log(neva.newDiv)
-    
-    
-</script>
+        byn.addEventListener('input', ()=>{
+            let request = new XMLHttpRequest()
+            request.open('GET', 'Server/current.json')
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+            request.send()
+            
+            request.addEventListener('readystatechange', ()=>{
+                if(request.status == 200 && request.readyState == 4){
+                    let data = JSON.parse(request.response)
+                    usd.value = (byn.value / data.usd).toFixed(2)
+                    rub.value = (byn.value / data.rub * 100).toFixed(2)
+                }
+            })
+        })
+        rub.addEventListener('input', ()=>{
+            let request = new XMLHttpRequest()
+            request.open('GET', 'Server/current.json')
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+            request.send()
+            
+            request.addEventListener('readystatechange', ()=>{
+                if(request.status == 200 && request.readyState == 4){
+                    let data = JSON.parse(request.response)
+                    byn.value = (rub.value * data.rub / 100).toFixed(2)
+                    usd.value = (rub.value / data.usdRub).toFixed(2)
+                }
+            })
+        })
 
+        usd.addEventListener('input', ()=>{
+            let request = new XMLHttpRequest()
+            request.open('GET', 'Server/current.json')
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+            request.send()
+
+            request.addEventListener('readystatechange', ()=>{
+                if(request.statusText == 'OK'){
+                    console.log(request.statusText, request.status, request.response)
+                }
+            })
+        })
+           
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
